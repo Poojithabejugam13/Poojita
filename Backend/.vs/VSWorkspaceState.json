@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\HartfordInsurance.API",
+    "\\HartfordInsurance.API\\Controllers",
+    "\\HartfordInsurance.API\\Middleware",
+    "\\HartfordInsurance.API\\wwwroot",
+    "\\HartfordInsurance.API\\wwwroot\\uploads",
+    "\\HartfordInsurance.API\\wwwroot\\uploads\\documents"
+  ],
+  "SelectedNode": "\\HartfordInsurance.API",
+  "PreviewInSolutionExplorer": false
+}

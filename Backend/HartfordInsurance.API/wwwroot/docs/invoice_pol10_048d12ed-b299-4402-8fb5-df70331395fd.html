@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6; margin: 0; padding: 40px; background-color: #f9f9f9; }
+                .invoice-box { max-width: 800px; margin: auto; padding: 40px; border-radius: 12px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+                .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #4B2E83; padding-bottom: 20px; margin-bottom: 30px; }
+                .logo { color: #4B2E83; font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+                .status-badge { background: #e6f4ea; color: #1e7e34; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 12px; text-transform: uppercase; }
+                .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+                .section-header { font-size: 12px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+                .info-text { font-size: 15px; font-weight: 600; color: #111; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+                th { text-align: left; padding: 12px; border-bottom: 1px solid #eee; font-size: 13px; color: #666; }
+                td { padding: 16px 12px; border-bottom: 1px solid #f8f8f8; font-size: 14px; }
+                .amount-col { text-align: right; }
+                .summary { width: 300px; margin-left: auto; }
+                .summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+                .total-row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 2px solid #4B2E83; margin-top: 10px; font-size: 18px; font-weight: 800; color: #4B2E83; }
+                .footer { text-align: center; margin-top: 50px; font-size: 12px; color: #999; }
+            </style>
+        </head>
+        <body>
+            <div class='invoice-box'>
+                <div class='header'>
+                    <div class='logo'>HARTFORD <span style='font-weight:300; color:#555;'>INSURANCE</span></div>
+                    <div class='status-badge'>Payment Successful</div>
+                </div>
+
+                <div class='details-grid'>
+                    <div>
+                        <div class='section-header'>Billed To</div>
+                        <div class='info-text'>Janu</div>
+                        <div class='info-text' style='font-weight:400; color:#666;'>Policy: Individual Essential Care</div>
+                        <div class='info-text' style='font-weight:400; color:#666;'>Tier: Elevate</div>
+                    </div>
+                    <div style='text-align: right;'>
+                        <div class='section-header'>Invoice Details</div>
+                        <div class='info-text'>INV-10-20260305-3314</div>
+                        <div class='info-text' style='font-weight:400; color:#666;'>Date: March 05, 2026</div>
+                        <div class='info-text' style='font-weight:400; color:#666;'>Policy ID: POL-10</div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th class='amount-col'>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Basic Health Coverage Monthly Premium</strong><br/>
+                                <span style='font-size: 12px; color:#999;'>Standard rate for Individual Essential Care - Elevate tier</span>
+                            </td>
+                            <td class='amount-col'>₹ 791.58</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Age Loading Factor</strong><br/>
+                                <span style='font-size: 12px; color:#999;'>Adjusted based on entry age: 22</span>
+                            </td>
+                            <td class='amount-col'>₹ 0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class='summary'>
+                    <div class='summary-row'>
+                        <span>Subtotal</span>
+                        <span>₹ 791.58</span>
+                    </div>
+                    <div class='summary-row'>
+                        <span>GST (18%)</span>
+                        <span>₹ 142.49</span>
+                    </div>
+                    <div class='total-row'>
+                        <span>Total Paid</span>
+                        <span>₹ 934.07</span>
+                    </div>
+                </div>
+
+                <div class='footer'>
+                    <p>This is a computer-generated invoice and does not require a physical signature.</p>
+                    <p>&copy; 2026 Hartford Health Insurance. Protected by Global Security Standards.</p>
+                </div>
+            </div>
+        </body>
+        </html>

@@ -1,0 +1,16 @@
+<!-- Removed pt-16 if error page, otherwise shifting to pt-16/pt-20 to ensure content clears the fixed navbar -->
+<div class="min-h-screen flex flex-col" [class.pt-16]="!isErrorPage()">
+  <app-navbar *ngIf="!isErrorPage()"></app-navbar>
+
+  <main class="flex-grow flex w-full bg-gray-50">
+    <!-- Sidebar is fixed; only shown if logged in AND not an error page -->
+    <app-sidebar *ngIf="authService.isAuthenticated() && !isErrorPage()"></app-sidebar>
+
+    <!-- Adjust margin if sidebar is present (ml-64 matches sidebar width) -->
+    <div class="flex-grow w-full overflow-hidden" [class.md:ml-64]="authService.isAuthenticated() && !isErrorPage()">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <app-footer *ngIf="!isErrorPage()" [hidden]="authService.isAuthenticated()"></app-footer>
+</div>

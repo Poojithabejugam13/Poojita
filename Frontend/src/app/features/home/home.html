@@ -1,0 +1,126 @@
+<div
+    class="bg-gradient-to-br from-bg-blush via-white to-accent-peach/20 min-h-[600px] flex items-center overflow-hidden relative">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary-plum/5 -skew-x-12 transform origin-top-right"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center px-4 py-2 rounded-full bg-primary-plum/10 text-primary-plum font-bold text-sm tracking-wide">
+                    <span class="mr-2">✨</span> Trust & Security Since 1810
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-black text-primary-plum leading-[1.15] tracking-tight">
+                    Secure Your Future with <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-maroon to-primary-plum">
+                        Hartford Health Assure
+                    </span>
+                </h1>
+                <p class="text-xl text-text-charcoal/80 leading-relaxed max-w-xl font-medium">
+                    Discover comprehensive health insurance plans tailored for you and your family.
+                    Enjoy priority claims processing, age-locked premiums, and expansive network coverage.
+                </p>
+                <div class="flex flex-wrap gap-6 pt-4">
+                    <a routerLink="/plans"
+                        class="group relative px-8 py-4 bg-primary-plum text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary-plum/20 hover:shadow-2xl hover:shadow-primary-plum/30 transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-3">
+                        View Our Plans
+                        <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                    @if (!authService.isAuthenticated()) {
+                    <a routerLink="/register"
+                        class="px-8 py-4 bg-white text-primary-plum border-2 border-primary-plum/10 hover:border-primary-plum/30 rounded-2xl font-bold text-lg transition-all hover:bg-gray-50 flex items-center">
+                        Get a Quote
+                    </a>
+                    }
+                </div>
+            </div>
+
+            <!-- Image Content -->
+            <div class="relative lg:block flex justify-center">
+                <div class="absolute -inset-4 bg-primary-plum/5 rounded-[2rem] rotate-3 blur-2xl"></div>
+                <div
+                    class="relative bg-white p-2 rounded-[1.5rem] shadow-xl border border-white/50 backdrop-blur-sm max-w-sm mx-auto">
+                    <img src="assets/homeimg.avif" alt="Health Assure Hero"
+                        class="rounded-[1.25rem] w-full h-auto object-cover shadow-inner">
+
+                    <!-- Floating Badge -->
+                    <!-- <div
+                        class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce-slow">
+                        <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-tighter">Verified Choice</p>
+                            <p class="text-sm font-black text-text-charcoal">99.9% Claim Ratio</p>
+                        </div> -->
+                    <!-- </div>  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-text-charcoal mb-4">Why Choose Us?</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">We provide robust, transparent, and immediate medical coverage to
+                ensure peace of mind during emergencies.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <div
+                class="card bg-accent-peach/20 border-accent-peach/40 hover:-translate-y-2 transition-transform duration-300">
+                <div
+                    class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 text-primary-plum">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-text-charcoal mb-3">Family Coverage</h3>
+                <p class="text-sm text-gray-600">Combine coverage for your entire family under a single, easily
+                    manageable policy with built-in protections.</p>
+            </div>
+
+            <div class="card bg-orange-50 border-orange-100 hover:-translate-y-2 transition-transform duration-300">
+                <div
+                    class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 text-orange-700">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-text-charcoal mb-3">Lightning Fast Claims</h3>
+                <p class="text-sm text-gray-600">Our dedicated agents and claims officers work around the clock to
+                    process your hospital bills immediately.</p>
+            </div>
+
+            <div class="card bg-bg-blush border-bg-blush/60 hover:-translate-y-2 transition-transform duration-300">
+                <div
+                    class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 text-primary-plum">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-text-charcoal mb-3">Transparent Pricing</h3>
+                <p class="text-sm text-gray-600">No hidden fees. Premium calculation is simple: base price plus
+                    age-loading depending on your tier.</p>
+            </div>
+
+        </div>
+    </div>
+</div>

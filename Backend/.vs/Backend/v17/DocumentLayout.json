@@ -1,0 +1,454 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AgentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Controllers\\AgentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\CustomerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Controllers\\CustomerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AdminController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Controllers\\AdminController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Enums\\Enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Enums\\Enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CoverageManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Services\\CoverageManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CommissionCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Services\\CommissionCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\PremiumCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Services\\PremiumCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\ClaimValidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Services\\ClaimValidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\Claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PlanTier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\PlanTier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\InsurancePlan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\InsurancePlan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyDocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\PolicyDocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Models\\PremiumResult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Models\\PremiumResult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\Payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Nominee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Domain\\Entities\\Nominee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Interfaces\\IServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Application\\Interfaces\\IServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Helpers\\Helpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Application\\Helpers\\Helpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\.vs\\tasks.vs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\tasks.vs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\DTOs\\Dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Application\\DTOs\\Dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 26,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClaimsOfficerController.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\ClaimsOfficerController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T15:20:17.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AgentController.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AgentController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\AgentController.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AgentController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\AgentController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAIwDIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T15:19:31.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T15:16:01.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GlobalExceptionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T14:59:58.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CoverageManager.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CoverageManager.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Services\\CoverageManager.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CoverageManager.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Services\\CoverageManager.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:16:08.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ClaimValidator.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:15:24.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CommissionCalculator.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CommissionCalculator.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Services\\CommissionCalculator.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\CommissionCalculator.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Services\\CommissionCalculator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:14:44.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PremiumCalculator.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\PremiumCalculator.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Services\\PremiumCalculator.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Services\\PremiumCalculator.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Services\\PremiumCalculator.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:11:36.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PremiumResult.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Models\\PremiumResult.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Models\\PremiumResult.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Models\\PremiumResult.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Models\\PremiumResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:09:55.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PlanTier.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PlanTier.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\PlanTier.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PlanTier.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\PlanTier.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T05:06:51.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "InsurancePlan.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\InsurancePlan.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\InsurancePlan.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\InsurancePlan.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\InsurancePlan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T05:05:19.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Enums\\Enums.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Enums\\Enums.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Enums\\Enums.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Enums\\Enums.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T04:43:50.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "JwtHelper.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Security\\JwtHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvygAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T04:12:07.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IServices.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Interfaces\\IServices.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Application\\Interfaces\\IServices.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Interfaces\\IServices.cs",
+              "RelativeToolTip": "HartfordInsurance.Application\\Interfaces\\IServices.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T04:11:39.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Helpers.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Helpers\\Helpers.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Application\\Helpers\\Helpers.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\Helpers\\Helpers.cs",
+              "RelativeToolTip": "HartfordInsurance.Application\\Helpers\\Helpers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T04:11:33.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T09:59:42.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Payment.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\Payment.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Payment.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T09:05:33.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "tasks.vs.json",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\.vs\\tasks.vs.json",
+              "RelativeDocumentMoniker": ".vs\\tasks.vs.json",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\.vs\\tasks.vs.json",
+              "RelativeToolTip": ".vs\\tasks.vs.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-26T09:05:28.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:58:53.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PolicyAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\PolicyAssignment.cs",
+              "ViewState": "AgIAAAAAAAAOQ/3sXEgjwAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:58:52.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PolicyDocument.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyDocument.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\PolicyDocument.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\PolicyDocument.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\PolicyDocument.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:58:47.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Nominee.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Nominee.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\Nominee.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Nominee.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\Nominee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:58:42.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Claim.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Claim.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Entities\\Claim.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Domain\\Entities\\Claim.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Entities\\Claim.cs",
+              "ViewState": "AgIAAAAAAAAAq6qqKurkvwwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:57:54.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Dtos.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\DTOs\\Dtos.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Application\\DTOs\\Dtos.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.Application\\DTOs\\Dtos.cs",
+              "RelativeToolTip": "HartfordInsurance.Application\\DTOs\\Dtos.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:54:22.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAIwEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:54:06.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T08:54:01.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Program.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Program.cs",
+              "ToolTip": "C:\\Users\\ruchi\\.gemini\\antigravity\\scratch\\HartfordInsurance\\Backend\\HartfordInsurance.API\\Program.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Program.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAAIAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T19:24:53.083Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

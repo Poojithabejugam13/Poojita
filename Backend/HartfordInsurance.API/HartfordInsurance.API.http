@@ -1,0 +1,5 @@
+@HartfordInsurance.API_HostAddress = https://localhost:7051
+
+### Test Swagger
+GET {{HartfordInsurance.API_HostAddress}}/swagger
+Accept: application/json

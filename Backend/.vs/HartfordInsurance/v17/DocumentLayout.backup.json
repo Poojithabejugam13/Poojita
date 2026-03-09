@@ -1,0 +1,324 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.infrastructure\\repositories\\planrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|solutionrelative:hartfordinsurance.infrastructure\\repositories\\planrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|solutionrelative:hartfordinsurance.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\middleware\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\middleware\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7008A3A0-324A-4A52-A059-DF3BA5AEC8F3}|HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.domain\\services\\claimvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7008A3A0-324A-4A52-A059-DF3BA5AEC8F3}|HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj|solutionrelative:hartfordinsurance.domain\\services\\claimvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7008A3A0-324A-4A52-A059-DF3BA5AEC8F3}|HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.domain\\hartfordinsurance.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7008A3A0-324A-4A52-A059-DF3BA5AEC8F3}|HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj|solutionrelative:hartfordinsurance.domain\\hartfordinsurance.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.infrastructure\\repositories\\claimrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|solutionrelative:hartfordinsurance.infrastructure\\repositories\\claimrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|solutionrelative:hartfordinsurance.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.api\\hartfordinsurance.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{7736FA92-050A-422C-A937-B889365DF485}|HartfordInsurance.API\\HartfordInsurance.API.csproj|solutionrelative:hartfordinsurance.api\\hartfordinsurance.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\DatabaseSeeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.infrastructure\\repositories\\policyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C292278D-0491-4EFB-8823-A348FA13AA3C}|HartfordInsurance.Infrastructure\\HartfordInsurance.Infrastructure.csproj|solutionrelative:hartfordinsurance.infrastructure\\repositories\\policyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20BAFADE-6C77-429C-89EB-CB67EEDEAD66}|HartfordInsurance.Application\\HartfordInsurance.Application.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.application\\services\\claimservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20BAFADE-6C77-429C-89EB-CB67EEDEAD66}|HartfordInsurance.Application\\HartfordInsurance.Application.csproj|solutionrelative:hartfordinsurance.application\\services\\claimservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20BAFADE-6C77-429C-89EB-CB67EEDEAD66}|HartfordInsurance.Application\\HartfordInsurance.Application.csproj|c:\\hartford\\dotnet\\capstoneproject\\healthinsurance\\backend\\hartfordinsurance.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20BAFADE-6C77-429C-89EB-CB67EEDEAD66}|HartfordInsurance.Application\\HartfordInsurance.Application.csproj|solutionrelative:hartfordinsurance.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAlwEQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T05:19:24.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HartfordInsurance.Domain.csproj",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj",
+              "RelativeToolTip": "HartfordInsurance.Domain\\HartfordInsurance.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-04T06:45:25.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClaimValidator.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "RelativeToolTip": "HartfordInsurance.Domain\\Services\\ClaimValidator.cs",
+              "ViewState": "AgIAACkAAABg7EX00vUiwB0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T05:26:17.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20260302172721_init.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Migrations\\20260302172721_init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:27:21.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAcwBEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:20:38.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20260302171734_init.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Migrations\\20260302171734_init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:17:34.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\appsettings.json",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\appsettings.json",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\appsettings.json",
+              "RelativeToolTip": "HartfordInsurance.API\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-02T17:10:08.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Program.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Program.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Program.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Program.cs",
+              "ViewState": "AgIAACEAAAAAbludScwewGgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:08:12.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "HartfordInsurance.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAA0AAACAJPXasZ8hwBgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-02T17:06:42.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HartfordInsurance.API.http",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\HartfordInsurance.API.http",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\HartfordInsurance.API.http",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\HartfordInsurance.API.http",
+              "RelativeToolTip": "HartfordInsurance.API\\HartfordInsurance.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-03-02T17:07:00.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseSeeder.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ViewState": "AgIAABkAAACAjSxhIHMuwBYAAAC2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T16:56:50.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DatabaseSeeder.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\DatabaseSeeder.cs",
+              "RelativeDocumentMoniker": "..\\DatabaseSeeder.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\DatabaseSeeder.cs",
+              "RelativeToolTip": "..\\DatabaseSeeder.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAAALMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T16:55:38.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PolicyRepository.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\PolicyRepository.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Repositories\\PolicyRepository.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\PolicyRepository.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Repositories\\PolicyRepository.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:34:03.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlanRepository.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\PlanRepository.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Repositories\\PlanRepository.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\PlanRepository.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Repositories\\PlanRepository.cs",
+              "ViewState": "AgIAACEAAACAtm1bPM8iwBwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:33:56.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClaimRepository.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\ClaimRepository.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Infrastructure\\Repositories\\ClaimRepository.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Infrastructure\\Repositories\\ClaimRepository.cs",
+              "RelativeToolTip": "HartfordInsurance.Infrastructure\\Repositories\\ClaimRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:33:46.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "HartfordInsurance.Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAACQAAAAASTJf0xIkwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:32:40.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ClaimService.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Application\\Services\\ClaimService.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.Application\\Services\\ClaimService.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.Application\\Services\\ClaimService.cs",
+              "RelativeToolTip": "HartfordInsurance.Application\\Services\\ClaimService.cs",
+              "ViewState": "AgIAAEcAAACA1mbxHpcwwDAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:31:48.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAADEAAABASSZplGo0wDsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:28:57.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GlobalExceptionHandler.cs",
+              "DocumentMoniker": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "RelativeDocumentMoniker": "HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "ToolTip": "C:\\hartford\\dotnet\\CapstoneProject\\HealthInsurance\\Backend\\HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "RelativeToolTip": "HartfordInsurance.API\\Middleware\\GlobalExceptionHandler.cs",
+              "ViewState": "AgIAACsAAAAA/y+E0/sSwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:28:16.176Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative">
+
+    <!-- Header Section -->
+    <div
+        class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 p-8 rounded-3xl gradient-primary text-white shadow-xl shadow-primary-plum/20 animation-fade-in">
+        <div class="animation-fade-in">
+            <h1 class="text-3xl font-extrabold tracking-tight">Welcome Back, {{ userName }}</h1>
+            <p class="text-bg-blush mt-2 font-medium opacity-90">Your health and protection are our top priorities.</p>
+        </div>
+        <div class="animation-fade-in bg-white/10 p-5 rounded-2xl w-full md:w-auto mt-4 md:mt-0 shadow-inner"
+            style="animation-delay: 0.1s">
+            <h3 class="text-sm font-bold text-white mb-3 tracking-wide uppercase">Quick Purchase Policy</h3>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <select [(ngModel)]="selectedPlanId" (change)="onPlanSelected()"
+                    class="px-4 py-2.5 rounded-lg text-primary-plum font-medium text-sm border-0 focus:ring-2 focus:ring-accent-peach">
+                    <option [ngValue]="null" disabled selected>Select Plan</option>
+                    @for (plan of availablePlans; track plan.planId) {
+                    <option [value]="plan.planId">{{ plan.planName }}</option>
+                    }
+                </select>
+                <select [(ngModel)]="selectedTierId" [disabled]="!selectedPlanId || selectedPlanTiers.length === 0"
+                    class="px-4 py-2.5 rounded-lg text-primary-plum font-medium text-sm border-0 focus:ring-2 focus:ring-accent-peach disabled:opacity-50">
+                    <option [ngValue]="null" disabled selected>Select Tier</option>
+                    @for (tier of selectedPlanTiers; track tier.tierId) {
+                    <option [value]="tier.tierId">{{ tier.tierName }}</option>
+                    }
+                </select>
+                <button (click)="navigateToWizard()" [disabled]="isPurchasing || !selectedPlanId || !selectedTierId"
+                    class="bg-white text-primary-plum hover:bg-bg-blush px-6 py-2.5 rounded-lg font-bold shadow-md transition-transform hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:transform-none flex items-center justify-center min-w-[120px]">
+                    Buy Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Due Notification Banner -->
+    <div *ngIf="totalPremiumDue > 0"
+        class="mb-10 bg-accent-peach/10 border border-accent-peach text-primary-plum px-6 py-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm animation-fade-in"
+        style="animation-delay: 0.15s">
+        <div class="flex items-center gap-4">
+            <div class="bg-accent-peach text-white p-2 rounded-full hidden sm:block">
+                <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg">Premium Payment Due</h3>
+                <p class="text-sm font-medium opacity-80">You have a total of <strong>{{ totalPremiumDue |
+                        currency:'INR':'symbol':'1.0-0'
+                        }}</strong> due for your active policies this month.</p>
+            </div>
+        </div>
+        <button (click)="scrollToPolicies()"
+            class="w-full sm:w-auto bg-primary-plum text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-secondary-maroon transition-colors shadow-md text-center whitespace-nowrap">
+            View & Pay Policies
+        </button>
+    </div>
+
+    <!-- Colored Action Status Banner -->
+    <div *ngIf="actionMessage"
+        class="mb-8 px-6 py-4 rounded-2xl font-bold text-white flex items-center gap-4 shadow-lg animation-fade-in"
+        [class.bg-green-600]="actionType === 'success'" [class.bg-red-600]="actionType === 'error'"
+        [class.bg-amber-500]="actionType === 'warning'">
+        <span class="text-2xl">{{ actionType === 'success' ? '&#10003;' : actionType === 'error' ? '&#10005;' :
+            '&#9888;' }}</span>
+        <span class="flex-1 leading-snug">{{ actionMessage }}</span>
+        <button (click)="actionMessage = ''" class="text-white/70 hover:text-white text-xl font-black">&times;</button>
+    </div>
+
+    <!-- Renewal Result Panel (shows backend-computed premium & coverage from PremiumCalculator + CoverageManager) -->
+    <div *ngIf="renewalResult" class="mb-8 bg-indigo-50 border border-indigo-200 rounded-3xl p-6 animation-fade-in">
+        <div class="flex items-center gap-3 mb-4">
+            <div
+                class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white text-lg font-black">
+                &#8635;</div>
+            <div>
+                <h3 class="font-black text-indigo-800">Renewal Submitted &mdash; POL-{{ renewalResult.policyId }}</h3>
+                <p class="text-xs text-indigo-500 font-bold uppercase tracking-widest">Awaiting Agent Re-Verification
+                    &rarr; Then Pay to Activate</p>
+            </div>
+            <button (click)="renewalResult = null"
+                class="ml-auto text-indigo-400 hover:text-indigo-700 font-black text-lg">&times;</button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="bg-white rounded-2xl p-4 border border-indigo-100">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Plan</p>
+                <p class="font-black text-primary-plum mt-1">{{ renewalResult.planName }}</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border border-indigo-100">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Tier</p>
+                <p class="font-black text-primary-plum mt-1">{{ renewalResult.tierName || 'Standard' }}</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border border-indigo-100">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Revised Premium</p>
+                <p class="font-black text-secondary-maroon mt-1">{{ renewalResult.newPremium |
+                    currency:'INR':'symbol':'1.0-0' }}<span class="text-xs text-gray-400 font-normal">/yr</span></p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border border-indigo-100">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Max Coverage</p>
+                <p class="font-black text-green-700 mt-1">{{ renewalResult.maxCoverage | currency:'INR':'symbol':'1.0-0'
+                    }}</p>
+            </div>
+        </div>
+        <p class="text-xs text-indigo-500 font-medium mt-4 text-center">
+            Premium recalculated by backend at your current age. Coverage Booster applied if no approved claims last
+            year.
+        </p>
+    </div>
+
+    <!-- KPI Cards Row -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 animation-fade-in" style="animation-delay: 0.2s">
+        <div class="card !bg-bg-blush !border-none">
+            <h3 class="text-secondary-maroon font-black text-xs uppercase tracking-widest opacity-70">Active Policies
+            </h3>
+            <p class="text-4xl font-black text-primary-plum mt-3 tracking-tight">{{ activePoliciesCount }}</p>
+        </div>
+
+        <div class="card !bg-orange-50 !border-none">
+            <h3 class="text-orange-900 font-black text-xs uppercase tracking-widest opacity-70">Pending Claims</h3>
+            <p class="text-4xl font-black text-orange-700 mt-3 tracking-tight">{{ pendingClaimsCount }}</p>
+        </div>
+
+        <div class="card !bg-red-50 !border-none">
+            <h3 class="text-red-900 font-black text-xs uppercase tracking-widest opacity-70">Premium Due</h3>
+            <p class="text-3xl font-black text-red-700 mt-3 tracking-tight">{{ totalPremiumDue |
+                currency:'INR':'symbol':'1.0-0' }}</p>
+            <p *ngIf="totalPremiumDue > 0"
+                class="text-[10px] font-black text-red-600/60 mt-2 uppercase tracking-widest animate-pulse">Action
+                Required</p>
+        </div>
+
+        <div class="card !bg-indigo-50 !border-none">
+            <h3 class="text-indigo-900 font-black text-xs uppercase tracking-widest opacity-70">Assigned Agent</h3>
+            <p class="text-lg font-bold text-primary-plum mt-3 tracking-tight leading-tight">{{ assignedAgentName }}</p>
+            <p class="text-[11px] font-bold text-indigo-900/40 mt-1">{{ assignedAgentPhone }}</p>
+            <div class="mt-3 pt-3 border-t border-indigo-100">
+                <p class="text-[10px] font-black text-indigo-900/70 uppercase tracking-widest mb-1">Claims Officer</p>
+                <p class="text-xs font-bold text-primary-plum leading-tight">{{ assignedOfficerName }}</p>
+                <p class="text-[11px] font-bold text-indigo-900/40 mt-0.5">{{ assignedOfficerPhone }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10 animation-fade-in" style="animation-delay: 0.3s">
+
+        <!-- My Policies List -->
+        <div class="lg:col-span-2" id="policies-section">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-4 mb-6">
+                <h2 class="text-xl font-bold text-text-charcoal">My Policies</h2>
+                <button (click)="refreshPolicies()" title="Refresh coverage balances"
+                    class="flex items-center gap-1.5 text-xs font-bold text-primary-plum hover:text-secondary-maroon transition-colors px-3 py-1.5 rounded-lg hover:bg-bg-blush">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Refresh
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                @for (policy of policies; track policy.id) {
+                <div class="card bg-white !p-6 flex flex-col justify-between !border-none">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="font-black text-xl text-primary-plum leading-tight tracking-tight">{{
+                                    policy.planName }}</p>
+                                <p class="text-sm text-secondary-maroon font-semibold" *ngIf="policy.tierName">{{
+                                    policy.tierName }} Tier</p>
+                                <p class="text-xs text-gray-400 font-medium mt-1">Policy Ref #{{ policy.id }}
+                                    <span *ngIf="policy.planType"
+                                        class="ml-1 px-1.5 py-0.5 bg-indigo-50 text-indigo-600 rounded text-[10px] font-bold uppercase">{{
+                                        policy.planType }}</span>
+                                </p>
+                            </div>
+                            <span class="px-2.5 py-1 text-[10px] font-bold rounded-full uppercase tracking-wider"
+                                [class.bg-green-100]="policy.status === 'Active'"
+                                [class.text-green-700]="policy.status === 'Active'"
+                                [class.bg-red-100]="policy.status === 'Rejected'"
+                                [class.text-red-700]="policy.status === 'Rejected'"
+                                [class.bg-orange-100]="policy.status === 'Pending Approval' || policy.status === 'Expired'"
+                                [class.text-orange-700]="policy.status === 'Pending Approval' || policy.status === 'Expired'">
+                                {{ policy.status }}
+                            </span>
+                        </div>
+
+                        <div class="py-3 border-y border-gray-50 my-3 flex justify-between items-center">
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium mb-0.5">Premium</p>
+                                <p class="font-bold text-secondary-maroon">{{ policy.totalPremium |
+                                    currency:'INR':'symbol':'1.0-0' }}<span
+                                        class="text-xs text-gray-400 font-normal">/yr</span></p>
+                            </div>
+                            <div class="text-right" *ngIf="policy.nomineeName">
+                                <p class="text-xs text-gray-500 font-medium mb-0.5">Nominee</p>
+                                <p class="font-semibold text-text-charcoal text-sm truncate max-w-[100px]">{{
+                                    policy.nomineeName }}</p>
+                            </div>
+                        </div>
+
+                        <div *ngIf="(policy.status === 'Rejected' && policy.rejectionReason) || policy.decisionReason"
+                            class="mt-3 p-2.5 bg-gray-50 rounded-xl border border-gray-100">
+                            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{{
+                                policy.status === 'Rejected' ? 'Rejection' : 'Officer' }} Note</p>
+                            <p class="text-xs text-text-charcoal font-medium italic">"{{ policy.rejectionReason ||
+                                policy.decisionReason }}"</p>
+                        </div>
+
+                        <!-- Renewal Notice -->
+                        <div *ngIf="policy.status === 'Expired'"
+                            class="mt-3 p-3 bg-orange-50 border border-orange-100 rounded-xl flex items-center gap-3">
+                            <div class="bg-orange-500 text-white p-1.5 rounded-full">
+                                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-black text-orange-800 uppercase tracking-tight">Renewal is coming
+                                </p>
+                                <p class="text-[10px] text-orange-700 font-medium">Your policy has expired. Renew now to
+                                    stay protected.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-end mb-1">
+                                <p class="text-xs text-gray-500 font-medium">Coverage Balance</p>
+                                <p class="font-bold text-text-charcoal text-sm">{{ policy.remainingCoverage |
+                                    currency:'INR':'symbol':'1.0-0'
+                                    }}</p>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-1.5 mb-1">
+                                <div class="bg-primary-plum h-1.5 rounded-full"
+                                    [style.width.%]="policy.maxCoverage > 0 ? (policy.remainingCoverage / policy.maxCoverage) * 100 : 0">
+                                </div>
+                            </div>
+                            <p class="text-right text-[10px] text-gray-400 font-medium">of {{ policy.maxCoverage |
+                                currency:'INR':'symbol':'1.0-0'
+                                }}</p>
+                        </div>
+
+                        <!-- Restore Info — shown when coverage is zero -->
+                        <div *ngIf="policy.remainingCoverage === 0"
+                            class="mt-3 p-3 bg-indigo-50 border border-indigo-200 rounded-xl flex items-center gap-3">
+                            <div class="bg-indigo-500 text-white p-1.5 rounded-full flex-shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-black text-indigo-800 uppercase tracking-tight">Coverage
+                                    Exhausted</p>
+                                <p class="text-[10px] text-indigo-600 font-medium">Coverage restores automatically when
+                                    next approved claim triggers restore benefit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-50 flex gap-2 w-full"
+                        *ngIf="policy.status === 'Active' || policy.status === 'Expired' || policy.status === 'Approved'">
+                        <!-- ACTIVE => Raise Claim -->
+                        <button *ngIf="policy.status === 'Active'" (click)="openClaimModal(policy.id)"
+                            class="flex-1 text-sm font-bold bg-state-success text-white px-4 py-2 rounded-lg hover:bg-state-success/90 transition-all shadow-md active:scale-95">
+                            🩺 Raise Claim
+                        </button>
+
+                        <!-- EXPIRED => Renew -->
+                        <button *ngIf="policy.status === 'Expired'" (click)="renewPolicy(policy.id)"
+                            class="flex-1 text-sm font-bold bg-primary-plum text-white px-4 py-2 rounded-lg hover:bg-secondary-maroon transition-all shadow-md active:scale-95">
+                            Renew Policy
+                        </button>
+
+                        <!-- APPROVED => Pay First Premium to Activate OR Regular Pay -->
+                        <button *ngIf="policy.status === 'Approved'" (click)="payPremium(policy)"
+                            [disabled]="isProcessingPayment"
+                            class="flex-1 text-sm font-bold bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+                            <span *ngIf="isProcessingPayment"
+                                class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                            Pay {{ (policy.totalPremium / 12) | currency:'INR':'symbol':'1.0-0' }}/mo to Activate
+                        </button>
+                        <button *ngIf="policy.status === 'Active'" (click)="payPremium(policy)"
+                            [disabled]="isProcessingPayment"
+                            class="flex-1 text-sm font-bold bg-accent-nude text-text-charcoal px-4 py-2 rounded-lg hover:bg-accent-peach transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+                            <span *ngIf="isProcessingPayment"
+                                class="w-4 h-4 border-2 border-text-charcoal/30 border-t-text-charcoal rounded-full animate-spin"></span>
+                            Pay Monthly Premium
+                        </button>
+                    </div>
+                </div>
+                }
+                @if (policies.length === 0) {
+                <div
+                    class="md:col-span-2 py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-300 flex items-center justify-center">
+                    <p class="text-gray-400 font-medium">
+                        No policies yet.
+                        <a routerLink="/plans" class="text-primary-plum font-bold hover:underline ml-1">Browse Plans
+                            →</a>
+                    </p>
+                </div>
+                }
+            </div>
+        </div>
+
+        <!-- Claims Overview Chart -->
+        <div class="card flex flex-col" style="max-height: 420px;">
+            <h2 class="text-xl font-bold text-text-charcoal border-b border-gray-100 pb-4 mb-6">Claims Overview</h2>
+            <div class="flex items-center justify-center relative" style="height: 180px;">
+                <canvas id="claimsChart"></canvas>
+            </div>
+            <div class="mt-6 space-y-3">
+                <div class="flex items-center justify-between text-sm font-medium">
+                    <div class="flex items-center gap-2 text-gray-600"><span
+                            class="w-3 h-3 rounded-full bg-primary-plum"></span> Approved</div>
+                    <span class="font-bold text-text-charcoal">{{ approvedClaims }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm font-medium">
+                    <div class="flex items-center gap-2 text-gray-600"><span
+                            class="w-3 h-3 rounded-full bg-accent-peach"></span> Pending</div>
+                    <span class="font-bold text-text-charcoal">{{ pendingClaimsCount }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm font-medium">
+                    <div class="flex items-center gap-2 text-gray-600"><span
+                            class="w-3 h-3 rounded-full bg-accent-nude"></span> Rejected</div>
+                    <span class="font-bold text-text-charcoal">{{ rejectedClaims }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="showInvoice" class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-text-charcoal/60 backdrop-blur-md" (click)="closeInvoice()"></div>
+
+        <!-- Modal Content -->
+        <div
+            class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl relative z-10 overflow-hidden animation-fade-in flex flex-col max-h-[95vh] border-0">
+
+            <!-- Modal Header -->
+            <div
+                class="bg-gradient-to-r from-primary-plum to-secondary-maroon px-10 py-10 text-white flex justify-between items-start">
+                <div class="animation-fade-in">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-white/20 p-2 rounded-xl backdrop-blur-sm">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-black uppercase tracking-[0.2em] opacity-80">Payment Successful</span>
+                    </div>
+                    <h2 class="text-3xl font-black tracking-tight leading-none mb-2">Receipt of Payment</h2>
+                    <p class="text-bg-blush/80 text-sm font-medium">Ref: {{ invoiceNumber }}</p>
+                </div>
+
+                <button (click)="closeInvoice()"
+                    class="p-2 hover:bg-white/10 rounded-full transition-all text-white active:scale-90">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Body -->
+            <div class="p-10 overflow-y-auto">
+
+                <!-- Billing Info -->
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10 pb-8 border-b border-gray-100">
+                    <div>
+                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Policy Holder</p>
+                        <p class="text-xl font-black text-primary-plum tracking-tight">{{ userName }}</p>
+                        <p class="text-gray-500 text-sm font-medium mt-1">Health Protection Plan Premium</p>
+                    </div>
+                    <div class="md:text-right">
+                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Transaction Date
+                        </p>
+                        <p class="text-text-charcoal font-black tracking-tight">{{ invoiceDate | date:'MMMM dd, yyyy' }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Premium Breakdown Table -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xs font-black text-gray-400 uppercase tracking-widest">Premium Breakdown</h3>
+                        <span
+                            class="text-[10px] font-bold bg-primary-plum/5 text-primary-plum px-2 py-0.5 rounded">Monthly
+                            Billing</span>
+                    </div>
+                    <div class="bg-gray-50/50 rounded-2xl border border-gray-100 overflow-hidden">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-100/50 border-b border-gray-100">
+                                    <th
+                                        class="text-left px-6 py-4 font-black text-gray-500 uppercase text-[10px] tracking-widest">
+                                        Description</th>
+                                    <th
+                                        class="text-right px-6 py-4 font-black text-gray-500 uppercase text-[10px] tracking-widest">
+                                        Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr *ngFor="let pol of paidPolicies">
+                                    <td class="px-6 py-5">
+                                        <p class="font-bold text-primary-plum text-base tracking-tight">{{ pol.planName
+                                            }}</p>
+                                        <p class="text-gray-400 text-xs font-medium">{{ pol.tierName || 'Standard' }}
+                                            Plan Tier • Monthly Installment</p>
+                                    </td>
+                                    <td class="px-6 py-5 text-right font-black text-primary-plum text-base">
+                                        {{ (pol.totalPremium / 12) | currency:'INR':'symbol':'1.0-0' }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">
+                                        <p class="text-gray-500 font-medium">GST / Insurance Tax (18%)</p>
+                                    </td>
+                                    <td class="px-6 py-4 text-right font-bold text-gray-600">
+                                        {{ (invoiceTotalMonthly * 0.18) | currency:'INR':'symbol':'1.0-0' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Total Section -->
+                <div
+                    class="bg-primary-plum rounded-3xl p-8 mb-10 shadow-xl shadow-primary-plum/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left">
+                        <p class="text-bg-blush/60 text-[10px] font-black uppercase tracking-widest mb-1">Total Amount
+                            Deducted</p>
+                        <p class="text-white text-4xl font-black tracking-tighter">{{ (invoiceTotalMonthly * 1.18) |
+                            currency:'INR':'symbol':'1.0-0' }}</p>
+                    </div>
+                    <div class="flex flex-col items-center md:items-end">
+                        <div class="flex items-center gap-2 text-bg-blush/80 text-xs font-bold mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Securely Processed
+                        </div>
+                        <span
+                            class="px-4 py-1.5 bg-green-400 text-primary-plum font-black text-[10px] rounded-full uppercase tracking-widest shadow-lg">Payment
+                            Verified</span>
+                    </div>
+                </div>
+
+                <!-- Invoice Downloads -->
+                <div *ngIf="generatedInvoices.length > 0" class="space-y-4">
+                    <h3 class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Official Documents</h3>
+                    <div class="grid grid-cols-1 gap-3">
+                        <a *ngFor="let url of generatedInvoices" (click)="downloadInvoice(url)"
+                            class="group flex items-center justify-between p-5 border-2 border-gray-100 rounded-2xl hover:border-primary-plum/30 hover:bg-bg-blush/20 transition-all cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="bg-indigo-50 p-2.5 rounded-xl group-hover:bg-primary-plum group-hover:text-white transition-all">
+                                    <svg class="w-5 h-5 text-primary-plum group-hover:text-white" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="text-left">
+                                    <p class="font-black text-primary-plum tracking-tight">Full PDF Invoice</p>
+                                    <p class="text-gray-400 text-xs font-medium">Click to view/download official receipt
+                                    </p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-300 group-hover:text-primary-plum transition-all" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-[10px] text-gray-300 font-bold uppercase tracking-[0.2em]">Hartford • Protection For
+                        Life</p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-10 py-6 bg-gray-50 border-t border-gray-100 flex justify-center rounded-b-3xl">
+                <button (click)="closeInvoice()"
+                    class="px-12 py-3 bg-white border-2 border-primary-plum/10 text-primary-plum font-black text-sm rounded-xl hover:bg-primary-plum hover:text-white hover:border-primary-plum transition-all active:scale-95 shadow-sm">
+                    Close Receipt
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Raise Claim Modal -->
+    <div *ngIf="showClaimModal" class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-text-charcoal/50 backdrop-blur-sm"
+            (click)="!isSubmittingClaim && closeClaimModal()"></div>
+
+        <!-- Modal Content -->
+        <div
+            class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden animation-fade-in flex flex-col">
+
+            <div class="bg-accent-peach px-8 py-5 text-white flex justify-between items-center">
+                <h2 class="text-xl font-bold tracking-wide">Raise a Claim</h2>
+                <button (click)="!isSubmittingClaim && closeClaimModal()"
+                    class="text-white hover:text-white/70 transition-colors" [disabled]="isSubmittingClaim">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-8">
+                <p class="text-sm text-gray-500 mb-6 font-medium">Please provide the details of your medical expense to
+                    process the claim.</p>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-text-charcoal mb-1">Claim Amount (₹)</label>
+                        <input type="number" [(ngModel)]="claimData.amount" placeholder="e.g. 50000"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent-peach focus:border-transparent transition-all outline-none font-medium"
+                            [disabled]="isSubmittingClaim" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-text-charcoal mb-1">Reason / Diagnosis</label>
+                        <textarea [(ngModel)]="claimData.reason" rows="3"
+                            placeholder="Describe the reason for your claim..."
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent-peach focus:border-transparent transition-all outline-none font-medium resize-none"
+                            [disabled]="isSubmittingClaim"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-text-charcoal mb-1">Supporting Document
+                            (Optional)</label>
+                        <input type="file" (change)="onFileSelected($event)" accept=".pdf,.jpg,.jpeg,.png"
+                            class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-accent-peach focus:border-transparent transition-all outline-none text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-accent-peach/10 file:text-accent-peach hover:file:bg-accent-peach/20 cursor-pointer"
+                            [disabled]="isSubmittingClaim" />
+                        <p class="text-xs text-gray-400 mt-1">Upload prescriptions or medical reports (PDF, JPG, PNG).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-end gap-3">
+                    <button (click)="closeClaimModal()" [disabled]="isSubmittingClaim"
+                        class="px-6 py-2.5 rounded-lg font-bold text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50">
+                        Cancel
+                    </button>
+                    <button (click)="submitClaim()" [disabled]="isSubmittingClaim"
+                        class="px-8 py-2.5 rounded-lg font-bold bg-accent-peach text-white hover:bg-orange-500 shadow-md transition-transform active:scale-95 disabled:opacity-75 disabled:transform-none flex items-center justify-center min-w-[140px]">
+                        @if (isSubmittingClaim) {
+                        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
+                        </svg>
+                        Submitting...
+                        } @else {
+                        Submit Claim
+                        }
+                    </button>
+                </div> <!-- End gap-3 -->
+            </div> <!-- End p-8 -->
+        </div> <!-- End Claim Modal Content -->
+    </div> <!-- End Claim Modal Wrapper -->
+
+</div>

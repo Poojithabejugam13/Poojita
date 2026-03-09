@@ -1,0 +1,760 @@
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Loading State -->
+    <div *ngIf="loadingPlans" class="flex flex-col items-center justify-center min-h-[400px]">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-plum mb-4"></div>
+        <p class="text-gray-500 text-sm">Loading plans...</p>
+    </div>
+
+    <ng-container *ngIf="!loadingPlans">
+        <!-- Agent-style Page Title -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-primary-plum">Policy Wizard</h1>
+            <p class="text-gray-500 mt-1 font-medium">Follow the steps below to secure your health protection.</p>
+        </div>
+
+        <!-- Classic Connected Stepper -->
+        <div class="flex items-center justify-center mb-10">
+            <ng-container *ngFor="let step of [1,2,3,4,5,6]; let i = index; let last = last">
+                <!-- Step circle -->
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all"
+                        [ngClass]="{
+                            'bg-primary-plum border-primary-plum text-white': currentStep > step,
+                            'bg-primary-plum border-primary-plum text-white ring-4 ring-primary-plum/20': currentStep === step,
+                            'bg-white border-gray-300 text-gray-400': currentStep < step
+                        }">
+                        <svg *ngIf="currentStep > step" class="w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span *ngIf="currentStep <= step">{{ step }}</span>
+                    </div>
+                </div>
+                <!-- Connector line -->
+                <div *ngIf="!last" class="h-0.5 w-12 sm:w-16 transition-all"
+                    [ngClass]="currentStep > step ? 'bg-primary-plum' : 'bg-gray-200'"></div>
+            </ng-container>
+        </div>
+
+        <!-- Main Wizard Card (agent-form style) -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col">
+
+            <!-- Gradient Header Bar -->
+            <div class="px-8 py-6 text-white flex justify-between items-center gradient-primary">
+                <div>
+                    <h2 class="text-2xl font-black">
+                        {{ currentStep === 1 ? 'Choose Plan' : currentStep === 2 ? 'Proposer Info' : currentStep === 3 ?
+                        'Health Details' : currentStep === 4 ? 'Insured Members' : currentStep === 5 ? 'Nominees' :
+                        'Review & Submit' }}
+                    </h2>
+                    <p class="text-xs opacity-80 font-bold uppercase tracking-widest mt-1">Step {{ currentStep }} of {{
+                        totalSteps }}</p>
+                </div>
+            </div>
+
+            <!-- Thin progress bar -->
+            <div class="h-1.5 w-full bg-gray-100">
+                <div class="h-full bg-primary-plum transition-all duration-500"
+                    [style.width]="(currentStep / totalSteps) * 100 + '%'"></div>
+            </div>
+
+            <div class="p-8 md:p-12 flex-grow">
+
+                <!-- STEP 1: Plan & Tier Selection -->
+                <div *ngIf="currentStep === 1" class="animation-fade-in">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-black text-primary-plum mb-2">Choose Your Protection</h2>
+                        <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">Select a category and
+                            explore our premium tiers.</p>
+                    </div>
+
+                    <!-- Category Tabs -->
+                    <div
+                        class="flex flex-wrap gap-3 mb-10 p-2 bg-gray-50 rounded-[1.5rem] w-fit border border-gray-100">
+                        <button *ngFor="let cat of ['Individual', 'Family', 'Senior Citizen', 'Specialized Care']"
+                            (click)="selectedPlanType = cat; selectedPlan = null; selectedTier = null"
+                            class="px-6 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest transition-all"
+                            [ngClass]="selectedPlanType === cat ? 'bg-primary-plum text-white shadow-lg' : 'text-gray-400 hover:text-primary-plum hover:bg-white'">
+                            {{ cat }}
+                        </button>
+                    </div>
+
+                    <div class="space-y-12">
+                        <ng-container *ngFor="let plan of allPlans">
+                            <div *ngIf="plan.planType === selectedPlanType" class="animation-fade-in">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-1.5 h-8 bg-secondary-maroon rounded-full"></div>
+                                    <div>
+                                        <h3 class="text-2xl font-black text-text-charcoal">{{ plan.planName }}</h3>
+                                        <p class="text-sm text-gray-500 font-medium mt-1">{{ plan.description }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <div *ngFor="let tier of plan.tiers" (click)="selectPlanTier(plan, tier)"
+                                        class="bg-white rounded-[2rem] p-8 border-2 transition-all cursor-pointer relative group flex flex-col h-full"
+                                        [ngClass]="selectedTier?.tierId === tier.tierId ? 'border-primary-plum ring-4 ring-primary-plum/5 shadow-2xl' : 'border-gray-50 hover:border-gray-100 hover:shadow-xl shadow-sm'">
+
+                                        <div *ngIf="selectedTier?.tierId === tier.tierId"
+                                            class="absolute top-6 right-6">
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-primary-plum text-white flex items-center justify-center shadow-lg shadow-primary-plum/20">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-6">
+                                            <h4 class="text-lg font-black text-primary-plum mb-2">{{ tier.tierName }}
+                                            </h4>
+                                            <div class="text-3xl font-black text-secondary-maroon">
+                                                {{ tier.basePremium | currency:'INR':'symbol':'1.0-0' }}
+                                                <span
+                                                    class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">/
+                                                    yr</span>
+                                            </div>
+                                            <p class="text-[11px] text-gray-500 font-medium mt-3 leading-relaxed">{{
+                                                tier.description }}</p>
+                                        </div>
+
+                                        <div class="space-y-4 py-6 border-t border-gray-50 flex-grow">
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-gray-400 uppercase tracking-tighter">Coverage
+                                                    Limit</span>
+                                                <span class="text-text-charcoal">{{ tier.coverageLimit |
+                                                    currency:'INR':'symbol':'1.0-0' }}</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-gray-400 uppercase tracking-tighter">Co-Payment</span>
+                                                <span class="text-text-charcoal">{{ tier.coPaymentPercentage }}%</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-gray-400 uppercase tracking-tighter">Waiting
+                                                    Period</span>
+                                                <span class="text-text-charcoal">{{ tier.preExistingDiseaseWaitingMonths
+                                                    }} Mo.</span>
+                                            </div>
+
+                                            <div class="flex flex-wrap gap-2 pt-4">
+                                                <div *ngIf="tier.coverageRestoreEnabled"
+                                                    class="px-3 py-1 bg-green-50 text-green-700 rounded-lg text-[9px] font-black uppercase tracking-widest border border-green-100">
+                                                    Restore
+                                                </div>
+                                                <div *ngIf="tier.ageLockProtection"
+                                                    class="px-3 py-1 bg-primary-plum/5 text-primary-plum rounded-lg text-[9px] font-black uppercase tracking-widest border border-primary-plum/10">
+                                                    Age Lock
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button
+                                            class="w-full mt-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all"
+                                            [ngClass]="selectedTier?.tierId === tier.tierId ? 'bg-primary-plum text-white shadow-lg' : 'bg-gray-50 text-gray-400 group-hover:bg-primary-plum group-hover:text-white'">
+                                            {{ selectedTier?.tierId === tier.tierId ? 'Tier selected' : 'Select this
+                                            tier' }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Proposer Details -->
+                <div *ngIf="currentStep === 2" class="animation-fade-in">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-black text-primary-plum mb-2">Proposer Information</h2>
+                        <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">Please provide the primary
+                            policy holder's legal details.</p>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50/30 p-8 rounded-[2rem] border border-gray-100">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full
+                                Legal Name</label>
+                            <input type="text" [(ngModel)]="proposer.name" placeholder="Enter full name"
+                                class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                [class.border-red-400]="fieldErrors['name']">
+                            <p *ngIf="fieldErrors['name']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-1">{{
+                                fieldErrors['name'] }}</p>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Date of
+                                Birth</label>
+                            <input type="date" [(ngModel)]="proposer.dob"
+                                class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                [class.border-red-400]="fieldErrors['dob']">
+                            <p *ngIf="fieldErrors['dob']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-1">{{
+                                fieldErrors['dob'] }}</p>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Gender
+                                Identity</label>
+                            <select [(ngModel)]="proposer.gender"
+                                class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50 appearance-none"
+                                [class.border-red-400]="fieldErrors['gender']">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <p *ngIf="fieldErrors['gender']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-1">{{
+                                fieldErrors['gender'] }}</p>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Mobile
+                                Number</label>
+                            <input type="tel" [(ngModel)]="proposer.mobile" placeholder="10-digit number"
+                                class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                [class.border-red-400]="fieldErrors['mobile']">
+                            <p *ngIf="fieldErrors['mobile']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-1">{{
+                                fieldErrors['mobile'] }}</p>
+                        </div>
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Permanent
+                                Address</label>
+                            <textarea [(ngModel)]="proposer.address" rows="3"
+                                placeholder="Enter complete residential address"
+                                class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50 resize-none"
+                                [class.border-red-400]="fieldErrors['address']"></textarea>
+                            <p *ngIf="fieldErrors['address']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-1">{{
+                                fieldErrors['address'] }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Health Metrics -->
+                <div *ngIf="currentStep === 3" class="animation-fade-in">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-black text-primary-plum mb-2">Health Metrics</h2>
+                        <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">Provide accurate vitals to
+                            calculate your premium risk loading.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Metrics Cards -->
+                        <div class="space-y-6">
+                            <div
+                                class="bg-gray-50/50 p-8 rounded-[2rem] border border-gray-100 flex items-center justify-between group transition-all hover:bg-white hover:shadow-xl">
+                                <div>
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Height
+                                        (cm)</label>
+                                    <div class="flex items-baseline gap-2">
+                                        <input type="number" [(ngModel)]="health.heightCm"
+                                            (ngModelChange)="calculateBMI()"
+                                            class="text-4xl font-black text-primary-plum bg-transparent border-none outline-none w-32 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                            [class.text-red-500]="fieldErrors['height']">
+                                        <span class="text-gray-300 font-black uppercase text-xs">CM</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-primary-plum/5 text-primary-plum flex items-center justify-center">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p *ngIf="fieldErrors['height']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-4">{{
+                                fieldErrors['height'] }}</p>
+
+                            <div
+                                class="bg-gray-50/50 p-8 rounded-[2rem] border border-gray-100 flex items-center justify-between group transition-all hover:bg-white hover:shadow-xl">
+                                <div>
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Weight
+                                        (kg)</label>
+                                    <div class="flex items-baseline gap-2">
+                                        <input type="number" [(ngModel)]="health.weightKg"
+                                            (ngModelChange)="calculateBMI()"
+                                            class="text-4xl font-black text-primary-plum bg-transparent border-none outline-none w-32 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                            [class.text-red-500]="fieldErrors['weight']">
+                                        <span class="text-gray-300 font-black uppercase text-xs">KG</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-primary-plum/5 text-primary-plum flex items-center justify-center">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p *ngIf="fieldErrors['weight']"
+                                class="text-red-500 text-[10px] font-black mt-1 uppercase tracking-tight ml-4">{{
+                                fieldErrors['weight'] }}</p>
+                        </div>
+
+                        <!-- BMI Display -->
+                        <div class="flex flex-col gap-6">
+                            <div
+                                class="bg-gradient-to-br from-text-charcoal to-primary-plum p-10 rounded-[2.5rem] text-white shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden h-full">
+                                <div
+                                    class="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+                                    <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                                    </svg>
+                                </div>
+                                <p class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-peach mb-4">Body
+                                    Mass Index</p>
+                                <div class="text-7xl font-black mb-4">{{ bmiValue | number:'1.1-1' }}</div>
+                                <div class="px-6 py-2 rounded-full font-black text-xs uppercase tracking-wider shadow-sm transition-all"
+                                    [ngClass]="{
+                                            'bg-blue-500 text-white': bmiValue > 0 && bmiValue < 18.5,
+                                            'bg-green-500 text-white': bmiValue >= 18.5 && bmiValue < 25,
+                                            'bg-amber-500 text-white': bmiValue >= 25 && bmiValue < 30,
+                                            'bg-red-500 text-white': bmiValue >= 30,
+                                            'bg-white/10 text-white/40': !bmiValue
+                                        }">
+                                    <span *ngIf="bmiValue > 0 && bmiValue < 18.5">Underweight</span>
+                                    <span *ngIf="bmiValue >= 18.5 && bmiValue < 25">Healthy</span>
+                                    <span *ngIf="bmiValue >= 25 && bmiValue < 30">Overweight</span>
+                                    <span *ngIf="bmiValue >= 30">Obese</span>
+                                    <span *ngIf="!bmiValue">Enter Metrics</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-primary-plum/5 p-8 rounded-[2rem] border border-primary-plum/10 flex items-center justify-between mb-6">
+                                <div>
+                                    <h4 class="font-black text-primary-plum uppercase text-xs tracking-widest mb-1">
+                                        Smoking Habit</h4>
+                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Increases
+                                        premium by 25%</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" [(ngModel)]="health.isSmoker" class="sr-only peer">
+                                    <div
+                                        class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary-plum">
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Pre-Existing Disease (PED) Section -->
+                            <div class="bg-white p-8 rounded-[2rem] border-2 border-gray-100 space-y-4">
+                                <div>
+                                    <h4 class="font-black text-primary-plum uppercase text-xs tracking-widest mb-1">
+                                        Pre-Existing Diseases (PED)</h4>
+                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                                        Declare any existing conditions for accurate coverage.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <select [(ngModel)]="health.selectedPed" (change)="onPedChange()"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all bg-gray-50/30 focus:bg-white">
+                                        <option value="">No Pre-existing Disease</option>
+                                        <option value="Diabetes">Diabetes</option>
+                                        <option value="Hypertension">Hypertension (High BP)</option>
+                                        <option value="Asthma">Asthma</option>
+                                        <option value="Thyroid">Thyroid Disorders</option>
+                                        <option value="Heart Disease">Heart Disease</option>
+                                        <option value="Cancer">Cancer</option>
+                                        <option value="Other">Other (Enter Manually)</option>
+                                    </select>
+
+                                    <div *ngIf="health.selectedPed === 'Other'" class="animation-fade-in flex gap-2">
+                                        <input type="text" [(ngModel)]="health.manualPed"
+                                            placeholder="Enter disease name"
+                                            class="flex-grow px-5 py-3.5 rounded-2xl border-2 border-indigo-100 focus:border-primary-plum outline-none font-bold text-sm transition-all bg-white shadow-inner">
+                                        <button (click)="addManualPed()"
+                                            class="px-5 bg-primary-plum text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg active:scale-95 transition-all">Add</button>
+                                    </div>
+
+                                    <div *ngIf="health.preExistingDiseases && health.preExistingDiseases.length > 0"
+                                        class="flex flex-wrap gap-2 mt-2">
+                                        <div *ngFor="let ped of health.preExistingDiseases; let idx = index"
+                                            class="bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border border-indigo-100 flex items-center gap-2 group">
+                                            {{ ped }}
+                                            <button (click)="removePed(idx)"
+                                                class="hover:text-red-500 transition-colors">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Insured Members -->
+                <div *ngIf="currentStep === 4" class="animation-fade-in">
+                    <div class="mb-8 flex justify-between items-end">
+                        <div>
+                            <h2 class="text-2xl font-black text-primary-plum mb-2">Insured Members</h2>
+                            <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">
+                                {{ selectedPlanType === 'Individual' ? 'Individual plans cover the proposer only.' :
+                                'Manage members included in this ' + selectedPlanType + ' plan.' }}
+                            </p>
+                        </div>
+                        <button *ngIf="selectedPlanType === 'Family'" (click)="addMember()"
+                            class="px-6 py-3 rounded-2xl bg-primary-plum text-white font-black text-xs uppercase tracking-widest shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Add Member
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div *ngFor="let member of members; let i = index"
+                            class="bg-gray-50/30 p-8 rounded-[2.5rem] border border-gray-100 relative group transition-all hover:bg-white hover:shadow-xl animation-fade-in">
+
+                            <div class="flex items-center gap-4 mb-8">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-primary-plum text-white flex items-center justify-center font-black text-lg shadow-lg shadow-primary-plum/20">
+                                    {{ i + 1 }}
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-black text-text-charcoal">Member Details</h3>
+                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                                        Relationship: {{ member.relation || 'Pending' }}</p>
+                                </div>
+                                <button *ngIf="i > 0" (click)="removeMember(i)"
+                                    class="ml-auto w-10 h-10 rounded-xl bg-red-50 text-red-400 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full
+                                        Name</label>
+                                    <input type="text" [(ngModel)]="member.name" placeholder="Member name"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                        [class.border-red-400]="fieldErrors['member_name_'+i]">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Date
+                                        of Birth</label>
+                                    <input type="date" [(ngModel)]="member.dob"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                        [class.border-red-400]="fieldErrors['member_dob_'+i]">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Gender</label>
+                                    <select [(ngModel)]="member.gender"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50 appearance-none"
+                                        [class.border-red-400]="fieldErrors['member_gender_'+i]">
+                                        <option value="">Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Relationship</label>
+                                    <select [(ngModel)]="member.relation"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50 appearance-none"
+                                        [class.border-red-400]="fieldErrors['member_relation_'+i]">
+                                        <option value="">Select</option>
+                                        <option *ngIf="i === 0" value="Self">Self</option>
+                                        <option *ngIf="i > 0" value="Spouse">Spouse</option>
+                                        <option *ngIf="i > 0" value="Child">Child</option>
+                                        <option *ngIf="i > 0" value="Parent">Parent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: Policy Nominees -->
+                <div *ngIf="currentStep === 5" class="animation-fade-in">
+                    <div class="mb-8 flex justify-between items-end">
+                        <div>
+                            <h2 class="text-2xl font-black text-primary-plum mb-2">Policy Nominees</h2>
+                            <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">Designate beneficiaries
+                                who will receive the policy benefits.</p>
+                        </div>
+                        <button (click)="addNominee()"
+                            class="px-6 py-3 rounded-2xl bg-primary-plum text-white font-black text-xs uppercase tracking-widest shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Add Nominee
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div *ngFor="let nominee of nominees; let i = index"
+                            class="bg-gray-50/30 p-8 rounded-[2.5rem] border border-gray-100 relative group transition-all hover:bg-white hover:shadow-xl animation-fade-in">
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full
+                                        Name</label>
+                                    <input type="text" [(ngModel)]="nominee.name" placeholder="Nominee name"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                        [class.border-red-400]="fieldErrors['nominee_name_'+i]">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Relationship</label>
+                                    <input type="text" [(ngModel)]="nominee.relation" placeholder="e.g. Spouse, Child"
+                                        class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50"
+                                        [class.border-red-400]="fieldErrors['nominee_relation_'+i]">
+                                </div>
+                                <div class="space-y-2 relative">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Share
+                                        Percentage (%)</label>
+                                    <div class="relative">
+                                        <input type="number" [(ngModel)]="nominee.share"
+                                            class="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-100 focus:border-primary-plum outline-none font-bold text-sm transition-all focus:bg-white bg-white/50 pr-12"
+                                            [class.border-red-400]="fieldErrors['nominee_share_'+i]">
+                                        <span class="absolute right-5 top-3.5 text-gray-300 font-black">%</span>
+                                    </div>
+
+                                    <button *ngIf="i > 0" (click)="removeNominee(i)"
+                                        class="absolute -top-12 -right-4 w-10 h-10 rounded-xl bg-red-50 text-red-400 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <p *ngIf="validationError && currentStep === 5"
+                            class="text-red-500 text-xs font-black uppercase tracking-widest text-center mt-6 p-4 bg-red-50 rounded-2xl border border-red-100">
+                            {{ validationError }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 6: Final Review & Document Upload -->
+                <div *ngIf="currentStep === 6" class="animation-fade-in">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-black text-primary-plum mb-2">Final Review</h2>
+                        <p class="text-gray-400 font-bold text-xs uppercase tracking-widest">Verify your selection and
+                            complete the application.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                        <div class="lg:col-span-2 space-y-8">
+                            <!-- Policy Summary Card -->
+                            <div
+                                class="bg-gray-50/50 p-8 rounded-[2.5rem] border border-gray-100 relative group overflow-hidden">
+                                <div class="absolute top-0 right-0 p-8">
+                                    <div
+                                        class="w-12 h-12 rounded-2xl bg-primary-plum/5 text-primary-plum flex items-center justify-center">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="text-xs font-black uppercase text-primary-plum mb-8 flex items-center gap-3">
+                                    <span class="w-6 h-1 bg-primary-plum rounded-full"></span>
+                                    Coverage Selection
+                                </h3>
+                                <div class="grid grid-cols-2 gap-8">
+                                    <div>
+                                        <p class="text-[10px] uppercase font-black text-gray-400 tracking-wider mb-2">
+                                            Selected Plan</p>
+                                        <p class="font-black text-lg text-text-charcoal">{{ selectedPlan?.planName }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] uppercase font-black text-gray-400 tracking-wider mb-2">
+                                            Tier Level</p>
+                                        <p class="font-black text-lg text-secondary-maroon">{{ selectedTier?.tierName }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] uppercase font-black text-gray-400 tracking-wider mb-2">
+                                            Coverage Period</p>
+                                        <p class="font-bold text-sm text-text-charcoal">{{ policyStartDate |
+                                            date:'mediumDate' }} - {{ 'Next Year' }}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] uppercase font-black text-gray-400 tracking-wider mb-2">
+                                            Insured Members</p>
+                                        <p class="font-bold text-sm text-text-charcoal">{{ members.length }} Person(s)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- KYC Document Upload -->
+                            <div
+                                class="bg-bg-blush/30 p-8 rounded-[2.5rem] border border-bg-blush/50 relative overflow-hidden group transition-all hover:bg-bg-blush/40">
+                                <h3 class="text-xs font-black uppercase text-primary-plum mb-6 flex items-center gap-3">
+                                    <span class="w-6 h-1 bg-primary-plum rounded-full"></span>
+                                    Verification Document
+                                </h3>
+                                <p class="text-sm font-medium text-gray-600 mb-6">Please upload a valid identity proof
+                                    (Aadhaar/Passport/PAN) to initiate verification.</p>
+
+                                <div class="relative group cursor-pointer">
+                                    <input type="file" (change)="onFileSelected($event)"
+                                        accept="image/*,application/pdf"
+                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                    <div
+                                        class="p-10 border-2 border-dashed border-primary-plum/20 rounded-[2rem] bg-white/50 text-center transition-all group-hover:border-primary-plum group-hover:bg-white">
+                                        <div *ngIf="!documentPreview" class="space-y-4">
+                                            <div
+                                                class="w-16 h-16 bg-primary-plum/5 text-primary-plum rounded-2xl flex items-center justify-center mx-auto transition-transform group-hover:scale-110">
+                                                <svg class="w-8 h-8" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-black text-primary-plum">Click to Upload Document
+                                                </p>
+                                                <p
+                                                    class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                                                    PDF, JPG or PNG (Max 5MB)</p>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="documentPreview"
+                                            class="flex items-center justify-center gap-4 text-left">
+                                            <div
+                                                class="w-12 h-12 bg-green-50 text-green-500 rounded-xl flex items-center justify-center shadow-inner">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-black text-green-600">{{ documentPreview }}</p>
+                                                <p
+                                                    class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                                                    Document Secured & Ready</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premium Breakdown Sidebar -->
+                        <div class="flex flex-col gap-6">
+                            <div
+                                class="bg-gradient-to-br from-primary-plum to-text-charcoal p-10 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden group">
+                                <div
+                                    class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150">
+                                </div>
+                                <h3
+                                    class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-peach mb-10 relative z-10">
+                                    Premium Estimates</h3>
+
+                                <div class="space-y-6 relative z-10">
+                                    <div class="flex justify-between items-center text-sm">
+                                        <span class="text-white/60 font-medium">Base Premium</span>
+                                        <span class="font-black">{{ basePremium | currency:'INR':'symbol':'1.0-0'
+                                            }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-sm">
+                                        <span class="text-white/60 font-medium font-bold">Age Factor</span>
+                                        <span class="text-accent-peach font-black">+ {{ ageLoading |
+                                            currency:'INR':'symbol':'1.0-0' }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs opacity-60">
+                                        <span class="font-medium">Risk Loadings (BMI/Smoke)</span>
+                                        <span class="font-black">+ {{ (bmiLoading + smokingLoading) |
+                                            currency:'INR':'symbol':'1.0-0' }}</span>
+                                    </div>
+                                    <div class="pt-6 mt-6 border-t border-white/10 flex justify-between items-center">
+                                        <span class="text-[10px] font-black uppercase tracking-widest">Taxes (GST
+                                            18%)</span>
+                                        <span class="font-bold text-sm">{{ taxAmount |
+                                            currency:'INR':'symbol':'1.2-2'
+                                            }}</span>
+                                    </div>
+                                    <div class="pt-8 flex flex-col items-center">
+                                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2">
+                                            Total Annual Premium</p>
+                                        <p class="text-5xl font-black text-white tracking-tighter">{{ finalPremium |
+                                            currency:'INR':'symbol':'1.0-0' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 bg-gray-50 rounded-[2rem] border border-gray-100 italic">
+                                <p class="text-[10px] text-gray-400 font-bold leading-relaxed">
+                                    * This is a preliminary quote based on provided health metrics. Final premium may
+                                    vary slightly after comprehensive medical underwriting by the Hartford Health Assure
+                                    team.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="p-6 border-t border-gray-100 flex justify-between items-center">
+                <button *ngIf="currentStep > 1" (click)="prevStep()"
+                    class="text-sm font-semibold text-gray-500 hover:text-gray-700 flex items-center gap-1 transition-colors">
+                    &larr; BACK
+                </button>
+                <div *ngIf="currentStep === 1"></div>
+
+                <button *ngIf="currentStep < totalSteps" (click)="nextStep()"
+                    class="px-6 py-2.5 rounded-lg bg-text-charcoal text-white text-sm font-bold hover:bg-primary-plum transition-colors">
+                    CONTINUE
+                </button>
+
+                <button *ngIf="currentStep === totalSteps" (click)="submitPolicy()"
+                    class="px-6 py-2.5 rounded-lg bg-text-charcoal text-white text-sm font-bold hover:bg-primary-plum transition-colors">
+                    {{ actionType === 'loading' ? 'Processing...' : 'Request Quote' }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Overlay -->
+        <div *ngIf="submitSuccess"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full text-center p-10 space-y-4">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold text-gray-800">Application Submitted!</h2>
+                <p class="text-gray-500 text-sm">{{ actionMessage }}</p>
+                <p class="text-xs text-gray-400">Redirecting to your dashboard...</p>
+            </div>
+        </div>
+    </ng-container>
+</div>

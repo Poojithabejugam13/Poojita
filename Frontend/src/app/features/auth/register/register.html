@@ -1,0 +1,110 @@
+<div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative bg-gray-50 z-0">
+
+    <div class="absolute inset-0 z-[-1] bg-accent-nude/30 clip-path-diagonal"></div>
+
+    <div class="max-w-xl w-full card shadow-2xl bg-white border-0 z-10 relative">
+
+        <div class="text-center mb-6">
+            <div
+                class="mx-auto w-16 h-16 bg-primary-plum rounded-full flex items-center justify-center shadow-inner mb-4">
+                <svg *ngIf="!isLoginMode" class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                </svg>
+                <svg *ngIf="isLoginMode" class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                    </path>
+                </svg>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center border-b border-gray-200 mb-6 w-full max-w-sm mx-auto">
+                <button type="button" (click)="isLoginMode = false" [class.border-primary-plum]="!isLoginMode"
+                    [class.text-primary-plum]="!isLoginMode"
+                    class="w-1/2 py-2 text-sm font-bold border-b-2 text-gray-500 hover:text-primary-plum transition-colors">
+                    Create Account
+                </button>
+                <button type="button" (click)="isLoginMode = true" [class.border-primary-plum]="isLoginMode"
+                    [class.text-primary-plum]="isLoginMode"
+                    class="w-1/2 py-2 text-sm font-bold border-b-2 border-transparent text-gray-500 hover:text-primary-plum transition-colors">
+                    Sign In
+                </button>
+            </div>
+
+            <h2 class="text-3xl font-extrabold text-text-charcoal">{{ isLoginMode ? 'Welcome Back' : 'Join Hartford' }}
+            </h2>
+            <p class="text-gray-500 mt-2 font-medium text-sm">{{ isLoginMode ? 'Sign in to your customer dashboard.' :
+                'Secure your health today.' }}</p>
+        </div>
+
+        <div *ngIf="errorMessage"
+            class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium text-center">
+            {{ errorMessage }}
+        </div>
+
+        <form class="space-y-6" (ngSubmit)="onSubmit()">
+
+            <div *ngIf="!isLoginMode" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label class="label-text">Full Legal Name</label>
+                    <input name="name" type="text" [required]="!isLoginMode" [(ngModel)]="name" class="input-field"
+                        placeholder="Jane Doe">
+                </div>
+                <div>
+                    <label class="label-text">Date of Birth</label>
+                    <input name="dob" type="date" [required]="!isLoginMode" [(ngModel)]="dateOfBirth"
+                        class="input-field text-gray-500">
+                </div>
+            </div>
+
+            <div>
+                <label class="label-text">Email address</label>
+                <input name="email" type="email" autocomplete="email" required [(ngModel)]="email" class="input-field"
+                    placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label class="label-text">Password</label>
+                <input name="password" type="password" autocomplete="new-password" required [(ngModel)]="password"
+                    class="input-field" placeholder="Create a strong password">
+            </div>
+
+            <div *ngIf="!isLoginMode" class="flex items-start mt-4">
+                <div class="flex items-center h-5">
+                    <input id="terms" name="terms" type="checkbox" [(ngModel)]="isTermsAccepted"
+                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-plum/30">
+                </div>
+                <div class="ml-3 text-sm">
+                    <label for="terms" class="font-medium text-gray-600">I agree to the <a href="#"
+                            class="text-secondary-maroon hover:underline">Terms and Conditions</a> and <a href="#"
+                            class="text-secondary-maroon hover:underline">Privacy Policy</a>.</label>
+                </div>
+            </div>
+
+            <div class="pt-2">
+                <app-captcha (onVerified)="isCaptchaVerified = $event"></app-captcha>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit"
+                    class="w-full btn-primary text-lg shadow-lg flex items-center justify-center gap-2">
+                    {{ isLoginMode ? 'Sign In' : 'Create Account' }}
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    .clip-path-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+    }
+</style>

@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-slate-50 text-slate-900 antialiased;
+        font-family: 'Roboto', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+        font-size: 0.95rem;
+    }
+}
+
+@layer components {
+
+    /* Reusable Buttons */
+    .btn-primary {
+        @apply bg-indigo-600 text-white px-5 py-2 rounded font-medium transition-all hover:bg-indigo-700 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 active:scale-95;
+    }
+
+    .btn-secondary {
+        @apply bg-slate-200 text-slate-800 px-5 py-2 rounded font-medium transition-all hover:bg-slate-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-400 active:scale-95;
+    }
+
+    .btn-outline {
+        @apply border border-slate-300 text-slate-700 px-5 py-2 rounded font-medium transition-all hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-400 active:scale-95;
+    }
+
+    /* Structural Elements */
+    .card {
+        @apply bg-white rounded-xl shadow-sm border border-slate-200 p-6;
+    }
+
+    /* Form Elements */
+    .input-field {
+        @apply w-full rounded-lg border-gray-300 border bg-white px-4 py-2.5 text-sm text-text-charcoal focus:border-primary-plum focus:ring-primary-plum focus:ring-1 focus:outline-none transition-colors;
+    }
+
+    .label-text {
+        @apply block text-sm font-medium text-gray-700 mb-1.5;
+    }
+
+    /* Premium Effects */
+    .glass {
+        @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+    }
+
+    .gradient-primary {
+        @apply bg-gradient-to-br from-primary-plum to-secondary-maroon;
+    }
+
+    .animation-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-accent-nude rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-peach;
+}
